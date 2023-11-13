@@ -1,12 +1,11 @@
 
-
-public class House <T extends Meat<? extends Number>>{
-    private T meat;
+public class House {
+    private   Meat meat;
     private String address;
     private String ownerName;
 
     private   boolean sacrified;
-    public House(String address,String ownerName,T meat,boolean sacrified){
+    public House(String address,String ownerName,Meat meat,boolean sacrified){
         this.address=address;
         this.ownerName=ownerName;
         this.setMeat(meat);
@@ -37,11 +36,11 @@ public class House <T extends Meat<? extends Number>>{
     }
 
 
-    public T getMeat() {
+    public Meat  getMeat() {
         return meat;
     }
 
-    public void setMeat(T meat) {
+    public void setMeat(Meat  meat) {
         this.meat =meat;
     }
 

@@ -1,27 +1,27 @@
-public class Meat<T extends Number> {
-    private  T t;
+public class Meat {
+    private final MeatType meatType;
+    private  Number quantity;
 
-    Meat(T t) {
-    try{
-    validateMeatQuantity(t);
-        this.setT(t);}
-    catch (IllegalArgumentException e){
-        e.printStackTrace();
+
+    public Meat(Number quantity,MeatType meatType){
+        this.quantity=quantity;
+        this.meatType=meatType;
     }
-
-
+    public Number getQuantity(){
+        return quantity;
     }
-    public void validateMeatQuantity(T t){
-        if (t != null &&t.doubleValue()<0){
+    public void setQuantity(Number quantity){
+        this.quantity=quantity;
+    }
+    public MeatType getMeatType(){
+        return meatType;
+    }
+    public void validateMeatQuantity(Number quantity) {
+        if (quantity != null &&quantity.doubleValue()<0){
             throw new IllegalArgumentException("Meat quantity can not be negative");
 
         }}
 
-    public T getT() {
-        return t;
-    }
-    public void setT(Number value) {
-        validateMeatQuantity((T) value);
-        this.t = (T)value;
-    }
+
+
 }
