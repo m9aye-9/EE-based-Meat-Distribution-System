@@ -1,11 +1,12 @@
-package com.example.DistributionOfMeat;
 
-public class House {
+
+public class House <T extends Meat<? extends Number>>{
+    private T meat;
     private String address;
     private String ownerName;
-    private Meat meat;
+
     private   boolean sacrified;
-    public House(String address,String ownerName,Meat meat,boolean sacrified){
+    public House(String address,String ownerName,T meat,boolean sacrified){
         this.address=address;
         this.ownerName=ownerName;
         this.setMeat(meat);
@@ -36,12 +37,12 @@ public class House {
     }
 
 
-    public Meat getMeat() {
+    public T getMeat() {
         return meat;
     }
 
-    public void setMeat(Meat meat) {
-        this.meat = meat;
+    public void setMeat(T meat) {
+        this.meat =meat;
     }
 
     public boolean isSacrified() {
@@ -51,4 +52,10 @@ public class House {
     public void setSacrified(boolean sacrified) {
         this.sacrified = sacrified;
     }
+
+
+
+
 }
+
+
