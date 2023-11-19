@@ -2,10 +2,14 @@ public class Meat<T extends Number> {
     private  T t;
 
     Meat(T t) {
-
+    try{
     validateMeatQuantity(t);
+        this.setT(t);}
+    catch (IllegalArgumentException e){
+        e.printStackTrace();
+    }
 
-    this.setT(t);
+
     }
     public void validateMeatQuantity(T t){
         if (t != null &&t.doubleValue()<0){
