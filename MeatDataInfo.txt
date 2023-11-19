@@ -1,0 +1,5 @@
+house 1,abdul basheer,77.0,true
+house 2,abdul sattar,0.0,false
+house 3,abdul majeed,0.0,false
+house 4,abdul taha,34.0,true
+house 5,abdul javad,65.0,true
