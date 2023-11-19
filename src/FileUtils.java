@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class FileUtils {
-    public static void writeToFile(ArrayList<House<? extends Meat<? extends Number>>> houses,String fileName) {
+    public static void writeToFile(ArrayList<House> houses,String fileName) {
     try(BufferedWriter writer=new BufferedWriter(new FileWriter(fileName))) {
-        for (House<? extends Meat<? extends Number>> house : houses) {
-            writer.write(house.getAddress() + "," + house.getOwnerName() + "," + house.getMeat().getT() + "," + house.isSacrified());
+        for (House house : houses) {
+            writer.write(house.getAddress() + "," + house.getOwnerName() + "," + house.getMeat().getQuantity().doubleValue() + "," + house.isSacrified());
             writer.newLine();
         }
         System.out.println("Data written to" + fileName);
@@ -14,8 +14,8 @@ public class FileUtils {
         e.printStackTrace();
     }
     }
-    public static ArrayList<House<? extends Meat<? extends Number>>>readFromFile(String filename){
-        ArrayList<House<? extends Meat<? extends Number>>> houses=new ArrayList<>();
+    public static ArrayList<House>readFromFile(String filename){
+        ArrayList<House> houses=new ArrayList<>();
         try(BufferedReader reader=new BufferedReader(new FileReader(filename))){
             String line;
             while((line=reader.readLine())!=null){
@@ -24,8 +24,10 @@ public class FileUtils {
                 String ownerName=parts[1];
                 double meatQuantity=Double.parseDouble(parts[2]);
                 boolean sacrified=Boolean.parseBoolean(parts[3]);
-                Meat<? extends Number> meat=new Meat<>(meatQuantity);
-                House<? extends Meat<? extends Number>> house=new House<>(address,ownerName,meat,sacrified);
+                String meatTypeStr=parts[4];
+                MeatType meatType=MeatType.valueOf(meatTypeStr.toUpperCase());
+                Meat meat=new Meat(meatQuantity,meatType);
+                House house=new House(address,ownerName,meat,sacrified);
                 houses.add(house);
             }
             System.out.println("Data read from "+filename);
