@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-
     }
+
 
         House house1=new House("house 1","abdul basheer",new Meat(98.0,MeatType.BEEF),true);
         House house2=new House("house 2","abdul sattar",new Meat(0.0,MeatType.BEEF),false);

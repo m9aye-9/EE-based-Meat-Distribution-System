@@ -52,7 +52,7 @@ public class House {
     public void setSacrified(boolean sacrified) {
         this.sacrified = sacrified;
     }
-
+}
 
 
 

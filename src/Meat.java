@@ -25,8 +25,8 @@ public class Meat {
             throw new IllegalArgumentException("Meat quantity can not be negative");
 
         }
-    }
 
 
 
+}
 }

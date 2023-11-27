@@ -7,4 +7,4 @@ public enum MeatType {
     public Class<? extends Number> getMeatClass(){
         return meatClass;
     }
-}}
+}
